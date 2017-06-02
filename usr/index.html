@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr" >
+<head>
+<meta charset="UTF-8" >
+<title>Balisage lumineux | Hypervision</title>
+	<meta name="description" content="" />
+	<meta name="author" content="sdeletang" />
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="zeus.css" media="all">
+	<link rel="stylesheet" href="style.css" media="all">
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="wrapper">
+		<p class="info pas txtcenter">Vous devez utiliser un naviguateur récent et activer javascript pour utiliser cette application</p>		
+		<header role="banner" class="ptl">
+			<hgroup class="row mam pbl txtcenter small-pan">
+				<h1 class="small-w100">WEB SCADA AIRLIFT</h1>		
+				<h2 class="small-w100">MCR</h2>
+			</hgroup>
+			<nav class="w100" id="menu" role="navigation">
+				<ul class="unstyled txtcenter small-pan">
+					<li class="inbl small-w100"><a href="index.html" class="inbl pam small-w100 active" >ACCUEIL</a></li>
+					<li class="inbl small-w100"><a href="index.html" class="inbl pam small-w100" >Configuration</a></li>
+				</ul>
+			</nav>
+
+		</header>
+
+		<div class="line gut mtm medium-man large-man">
+						
+			<section class="entry-content w90 small-w100 center pas">
+			
+				<header class="mtl">
+					<h1 class="h3-like mbl">ACCUEIL</h1>
+				</header>
+				
+				<article>
+			
+				</article>
+				
+			</section>
+			
+		</div><!-- #main  -->
+		
+		<footer class="txtcenter mal" role="contentinfo">
+			<small>Fièrement propulsé par Stéphen DELETANG  | Aéroport du Grand Ouest</small>
+		</footer>
+	
+	</div><!-- #wrapper -->
+	
+<script src="cronos.min.js"></script>	
+<script>
+/* on verifie si le naviguateur est compatible et que javascript est activé */
+$.Class('info')[0].style.display="none";
+
+/* On charge la table de variable au lancement de la page */
+window.onload=function() { $.data.get('ArrayVar0.shtm'); };
+
+/*On parse les variables du fichier */
+function response(d){
+	var test=JSON.parse(d);
+	console.log(test.var1);
+}
+
+</script>
+</body>
+</html>

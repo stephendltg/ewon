@@ -1,0 +1,6 @@
+﻿<%#ExeSSI,
+OPEN data1! FOR BINARY OUTPUT AS 1
+PUT 1, data2!
+CLOSE 1
+%>
+<p>Enregistré</p>

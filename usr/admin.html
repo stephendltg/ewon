@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr" >
+<head>
+<meta charset="UTF-8" >
+<title>Balisage lumineux | Hypervision | Administration</title>
+	<meta name="description" content="Administration pour web scada airlift" />
+	<meta name="author" content="sdeletang" />
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="zeus.css" media="all">
+	<style>
+	 .hide{display:none}a{color:#74777b;text-decoration:none;transition:border .2s,color .2s}a:link{color:#74777b}a:visited{color:#74777b}a:hover{color:#2cc185;border-bottom:1px solid #2cc185}a:focus{color:#2cc185;border-bottom:1px solid #2cc185}h6{font-weight:400}button{border:1px solid #bdc2c9;color:#74777b;transition:all .2s;background:#fff}button:hover{background:#e7ecea}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#e7ecea;font-family:'Lato';font-weight:300;color:#74777b}.info{color:#fff;background:#000}header hgroup h2{color:#bdc2c9;font-variant:small-caps}header nav{background:#bdc2c9}header nav li a{font-variant:small-caps;color:#74777b;background:#fff;border-bottom:5px solid #bdc2c9;border-top:5px solid #bdc2c9}header nav li .active,header nav li .active:hover{color:#2cc185;background:#fff;border-bottom:5px solid #fff}header nav li a:hover{color:#fff;background:#2cc185;border-bottom:5px solid #2cc185}section{background:#fff}section textarea{width:100%;min-height:600px;border:1px solid #bdc2c9;color:#74777b}section .h6-like{font-family:'Lato';font-weight:400;color:#bdc2c9;text-transform:uppercase}article .filename{background:#2cc185;color:#fff}
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>	
+</head>
+
+<body>
+	<div class="wrapper">
+		<p class="info pas txtcenter">Vous devez utiliser un naviguateur récent et activer javascript pour utiliser cette application</p>		
+		<header role="banner" class="ptl">
+			<hgroup class="row mam pbl txtcenter tiny-pan">
+				<h1 class="tiny-w100">WEB SCADA AIRLIFT</h1>		
+				<h2 class="tiny-w100">Administration</h2>
+			</hgroup>
+			<nav class="w100" id="menu" role="navigation">
+				<ul class="unstyled txtcenter tiny-pan">
+					<li class="inbl tiny-w100"><a href="#" class="inbl big pam tiny-w100" onclick="$.Tab('tab',1,this);return false;">Editeur</a></li>
+					<li class="inbl tiny-w100"><a href="#" class="inbl big pam tiny-w100" onclick="$.Tab('tab',2,this);return false;">Configuration</a></li>
+				</ul>
+			</nav>
+
+		</header>
+
+		<div class="center w90">
+						
+			<section class="entry-content tab hide pas">
+			
+				<header class="mtl">
+					<h1 class="h3-like mbl">EDITEUR</h1>
+				</header>
+				
+				<article>
+			
+					<div class="row">
+						<section class="col w70">
+							<div class="filename pas ma0">Nom du fichier: <span id="filename"></span></div>
+							<textarea id="editor" name="editor" class="ma0 pas"></textarea>
+							<div class="pts">
+								<button class="pas"  onclick="$.editor.post($.Id('editor').value);">Enregistrer</button>
+								<div id="message" class="inbl pas"></div>
+							</div>
+						</section>
+						<nav class="col plm">
+							<span class="h6-like">Templates front-end</span>
+							<ul class="unstyled mbm">
+								<li><a href="index.html" onclick="$.editor.get(this.href);return false;" >Index.html</a></li>
+								<li><a href="page-1.html" onclick="$.editor.get(this.href);return false;" >Page 1.html</a></li>
+								<li><a href="page-2.html" onclick="$.editor.get(this.href);return false;" >Page 2.html</a></li>
+								<li><a href="page-3.html" onclick="$.editor.get(this.href);return false;" >Page 3.html</a></li>
+								<li><a href="page-4.html" onclick="$.editor.get(this.href);return false;" >Page 4.html</a></li>
+								<li><a href="page-5.html" onclick="$.editor.get(this.href);return false;" >Page 5.html</a></li>
+								<li><a href="page-6.html" onclick="$.editor.get(this.href);return false;" >Page 6.html</a></li>
+								<li><a href="page-7.html" onclick="$.editor.get(this.href);return false;" >Page 7.html</a></li>
+								<li><a href="page-8.html" onclick="$.editor.get(this.href);return false;" >Page 8.html</a></li>
+								<li><a href="page-9.html" onclick="$.editor.get(this.href);return false;" >Page 9.html</a></li>
+							</ul>
+							<span class="h6-like">Style</span>
+							<ul class="unstyled mbm">
+								<li><a href="style.css" onclick="$.editor.get(this.href);return false;" >Style.css</a></li>
+								<li><a href="zeus.css" onclick="$.editor.get(this.href);return false;" >Zeus.css</a></li>
+							</ul>
+							<span class="h6-like">Tables variables</span>
+							<ul class="unstyled mbm">
+                                <li><a href="ArrayVar0.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable index.html</a></li>
+								<li><a href="ArrayVar1.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 1</a></li>
+								<li><a href="ArrayVar2.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 2</a></li>
+								<li><a href="ArrayVar3.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 3</a></li>
+								<li><a href="ArrayVar4.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 4</a></li>
+								<li><a href="ArrayVar5.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 5</a></li>
+								<li><a href="ArrayVar6.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 6</a></li>
+								<li><a href="ArrayVar7.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 7</a></li>
+								<li><a href="ArrayVar8.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 8</a></li>
+								<li><a href="ArrayVar9.shtm" onclick="$.editor.get(this.href);return false;" >Table - Variable Page 9</a></li>
+							</ul>
+							<span class="h6-like">Back-End</span>
+							<ul class="unstyled mbm">
+								<li><a href="admin.html" onclick="$.editor.get(this.href);return false;" >Administration</a></li>
+								<li><a href="Chart.min.js" onclick="$.editor.get(this.href);return false;" >Chart.js</a></li>
+								<li><a href="cronos.min.js" onclick="$.editor.get(this.href);return false;" >Cronos.js</a></li>
+							</ul>
+							<span class="h6-like">Documentation</span>
+							<ul class="unstyled mbm">
+								<li><a href="help.html" onclick="$.editor.get(this.href);return false;" >Documentation</a></li>
+							</ul>
+						</nav>
+					</div>
+					
+				</article>
+				
+			</section>
+				
+			<section class="entry-content tab hide pas">
+			
+				<header class="mtl">
+					<h1 class="h3-like mbl">CONFIGURATION</h1>
+				</header>
+				
+				<article class="ptl pbl">
+					<p class="txtcenter mtl mbl pbl"> Pour accéder au panneau de configuration du serveur EWON, vous pouvez suivre ce <a href="../Ast/MainAst.shtm">lien</a>.<p>
+					
+				</article>	
+								
+			</section>
+			
+			<section class="entry-content tab pas">
+				
+				<article class="mtl ptl pbl">
+					<p class="txtcenter mtl ptl pbl">Bienvenue sur votre espace d'administration.<p>
+					<p class="txtcenter mbl pbl">Cette application est hébergé sur un <a href="http://www.ewon.fr/fr/ewon-500-4001.html?ewp=14">EWON 500</a>, Passerelle Série-Ethernet industrielle. </p>
+					
+				</article>
+										
+			</section>
+
+			
+		</div><!-- #main  -->
+		
+		<footer class="txtcenter mal" role="contentinfo">
+			<small>Fièrement propulsé par Stéphen DELETANG  | <a href="index.html">Front End</a> | <a href="help.html">Documentation</a></small>
+		</footer>
+	
+	</div><!-- #wrapper -->
+	
+<script src="cronos.min.js"></script>	
+<script>
+/* on verifie si le naviguateur est compatible et que javascript est activé */
+$.Class('info')[0].style.display="none";
+</script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr" >
+<head>
+<meta charset="UTF-8" >
+<title>Balisage lumineux | Hypervision | Documentation</title>
+	<meta name="description" content="Documentation pour web scada airlift" />
+	<meta name="author" content="sdeletang" />
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="zeus.css" media="all">
+	<style>
+	 .hide{display:none}a{color:#74777b;text-decoration:none;transition:border .2s,color .2s}a:link{color:#74777b}a:visited{color:#74777b}a:hover{color:#00568C;border-bottom:1px solid #00568C}a:focus{color:#00568C;border-bottom:1px solid #00568C}h6{font-weight:400}button{border:1px solid #bdc2c9;color:#74777b;transition:all .2s;background:#fff}button:hover{background:#e7ecea}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#e7ecea;font-family:'Lato';font-weight:300;color:#74777b}.info{color:#fff;background:#000}header hgroup h2{color:#bdc2c9;font-variant:small-caps}header nav{background:#bdc2c9}header nav li a{font-variant:small-caps;color:#00568C;background:#fff;border-bottom:5px solid #bdc2c9;border-top:5px solid #bdc2c9}header nav li .active,header nav li .active:hover{color:#00568C;background:#fff;border-bottom:5px solid #fff}header nav li a:hover{color:#fff;background:#00568C;border-bottom:5px solid #00568C}section{background:#fff}section .h6-like{font-family:'Lato';font-weight:400;color:#bdc2c9;text-transform:uppercase}code{display:block;}
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+	<style>
+	a:hover {color: #00568C;border-bottom: 1px solid #00568C;}
+	a:focus {color: #00568C;border-bottom: 1px solid #00568C;}
+	header nav li a{color: #00568C;}
+	header nav li .active,header nav li .active:hover{color: #00568C;}
+	header nav li a:hover{background: #00568C;border-bottom: 5px solid #00568C;}
+	code{display:block;}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<p class="info pas txtcenter">Vous devez utiliser un naviguateur récent et activer javascript pour utiliser cette application</p>		
+		<header role="banner" class="ptl">
+			<hgroup class="row mam pbl txtcenter tiny-pan">
+				<h1 class="tiny-w100">WEB SCADA AIRLIFT</h1>		
+				<h2 class="tiny-w100">Documentation</h2>
+			</hgroup>
+			<nav class="w100" id="menu" role="navigation">
+				<ul class="unstyled txtcenter tiny-pan">
+					<li class="inbl tiny-w100"><a href="#" class="inbl active big pam tiny-w100" onclick="$.Tab('tab',1,this);return false;">EWON 500</a></li>
+					<li class="inbl tiny-w100"><a href="#" class="inbl big pam tiny-w100" onclick="$.Tab('tab',2,this);return false;">ZEUS.css</a></li>
+					<li class="inbl tiny-w100"><a href="#" class="inbl big pam tiny-w100" onclick="$.Tab('tab',3,this);return false;">CRONOS.js</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="center w90">
+			<section class="entry-content tab pas">
+				<header class="mtl">
+					<h1 class="h3-like mbl">EWON 500</h1>
+					<p class="mbl">Un serveur de communication industrielle.</p>
+				</header>
+				<article class="pbm">
+					<header>EWON<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">Configuration système: Identification </h6>
+						<p class="col">
+						Ewon identification: MCR <br>
+						Informations: Régulateur de courant pour boucle balisage lumineux<br>
+						Page accueil: index.html<br>
+						Activé la sécurité pour les pages utilisateurs: Oui
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">Configuration système: Services Réseaux </h6>
+						<p class="col">
+						Adresse du serveur SMTP: 192.168.113.130 <br>
+						Port SMTP: 25<br>
+						Nom utilisateur SNMP: s.deletang<br><br>
+						NTP - activer la mise à jour de l'heure: Oui <br>
+						Adresse serveur NTP: 192.168.113.101<br>
+						Port serveur NTP: 123<br>
+						Décalage : -2 heures<br>
+						Intervalle de temps (mise à jour) : 1440 minutes<br><br>
+						Adresse serveur FTP: 192.168.1.1<br>
+						Port serveur FTP: 21<br>
+						Nom utilisateur: EWON<br>
+						Mot de passe : EWON<br>
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">Ressources: Configuration mémoire</h6>
+						<p class="col">Choisir la première configuration (/user= 2M, /enregistrement= 1M, /sys =1M).
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">Aide: Configuration scripts</h6>
+						<p class="col">
+						extrait bit 1 d'un mot: BIT@=MOT@#1<br>
+						extrait bit 2 d'un mot: BIT@=MOT@#2<br>
+						</p>
+					</div>
+				</article>
+                
+				<article class="pbm">
+					<header>Lecture distantes des variables EWON<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">Configuration sur module client</h6>
+						<p class="col">Lors de la configuration d'une variable sur le panneau de configuration de l'ewon, il est possible de partagé la variable via SNMP. Il suffit d'activé le partage SNMP puis de donner un numéro OID (numero de d'identification de la variable).</p>
+					</div>
+                    <div class="row pbm">
+						<h6 class="col large-w33">Configuration sur module maître</h6>
+						<p class="col">Pour accéder au variables depuis le module maître. Sur le panneau de configuration du module EWON, créer une variable puis affecté la variable au serveur SNMP du module. <br> Adresse SNMP de type: <code>.1.3.6.1.4.1.8284.2.1.3.1.11.1.4.OID,"adresse ip module client",public </code>   </p>
+					</div>
+				</article>	
+			</section><!-- #ewon -->
+			
+			<section class="entry-content hide tab pas">
+				<header class="mtl">
+					<h1 class="h3-like mbl">ZEUS.css</h1>
+					<p class="mbl">Framework css développé pour ewon fondé sur le principe de surcharge des classes.</p>
+				</header>
+				<article class="pbm">
+					<header>BASE<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">h1-like ... h6-like</h6>
+						<p class="col">Style des éléments comme un titre.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">smaller, small, big, bigger, biggest</h6>
+						<p class="col">Taille police.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">txtleft, txtright, txtcenter</h6>
+						<p class="col">Alignement du texte.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">(ul) unstyled</h6>
+						<p class="col">Suppression du style par défaut des listes.</p>
+					</div>
+				</article>
+				<article class="pbm">
+					<header>DISPOSITION<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">mod</h6>
+						<p class="col">Formatage du contexte d'un élément (overflow:hidden).</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">line</h6>
+						<p class="col">Conteneur pour positionnement horizontal.
+						<code class="mas">&#60;div class="line" &#62; 
+	&#60;div class="start" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+	&#60;div class="end" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+&#60;/div&#62;</code>
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">row</h6>
+						<p class="col">Conteneur pour positionnement en tableau.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">col</h6>
+						<p class="col">Cellule d'un tableau déclarer par row.
+						<code class="mas">&#60;div class="row" &#62; 
+	&#60;div class="col" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+	&#60;div class="col" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+&#60;/div&#62;</code>
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">inbl</h6>
+						<p class="col">Déclaration d'un block en ligne.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">left ou start, right ou end</h6>
+						<p class="col">Positionnement et délaration d'un lément flottant</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">center</h6>
+						<p class="col">Centrage horizontale d'un éléments block.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">left, right</h6>
+						<p class="col">Positionnement et délaration d'un lément flottant</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">clearfix</h6>
+						<p class="col">Conteneur d'éléments flottant.
+						<code class="mas">&#60;div class="clearfix" &#62; 
+	&#60;div class="left" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+	&#60;div class="right" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+&#60;/div&#62;</code>
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">clear</h6>
+						<p class="col">Replace un élément dans son contexte naturel (utiliser après flottant).
+						<code class="mas">&#60;div class="left" &#62;
+	&#60;p&#62; TEST &#60;/p&#62;
+	&#60;p&#62; TEST &#60;/p&#62;
+&#60;/div&#62;
+&#60;div class="right" &#62;
+	&#60;p&#62; TEST &#60;/p&#62;
+	&#60;p&#62; TEST &#60;/p&#62;
+&#60;/div&#62;
+&#60;div class="clear"&#62; &#60;/div&#62;</code>
+						</p>
+					</div>
+				</article>
+				<article class="pbm">
+					<header>LARGEUR<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">w10 ... w100</h6>
+						<p class="col">Largeur de 10% à 100%.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">w100p ... w1140p</h6>
+						<p class="col">Largeur de 100px à 1140px.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">mw960p, mw1140p</h6>
+						<p class="col">Largeur max de 960px et 1140px.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">wauto</h6>
+						<p class="col">Largeur automatique.</p>
+					</div>
+				</article>
+				<article class="pbm">
+					<header>TABLEAU<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">table</h6>
+						<p class="col">Style comme un éléments tableau.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">table-auto.</h6>
+						<p class="col">Contexte auto d'un tableau.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">alternate</h6>
+						<p class="col">Style alterne d'un tableau.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">alternate-vert</h6>
+						<p class="col">Style alterner vertical d'un tableau.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">striped</h6>
+						<p class="col">Ligne Tableau colorer.</p>
+					</div> 
+					<div class="row pbm">
+						<h6 class="col large-w33">striped-vert</h6>
+						<p class="col">Colonne Tableau colorer.</p>
+					</div>
+				</article>
+				<article class="pbm">
+					<header>RESPONSIVE<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">Prefix: large, medium, small, tiny</h6>
+						<p class="col">Préfixe de largeur d'écran.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">prefix-w25,prefix-ma0, ...</h6>
+						<p class="col">Formatage du prefix de largeur d'écran.
+						<br>Element de formatage prit en charge:
+						<br>man, pan : marge 0 de l'élément.
+						<br>w25,w33, w50, w66, w75, w100, wauto : largeur.
+						<br>hidden, visible: cacher ou visible.
+						<br>no-float: élément perdant son contexte flottant.
+						<br>inbl, row, col: contexte de l'élément.
+						</p>
+					</div>
+				</article>
+				<article class="pbm">
+					<header>ESPACE DES ELEMENTS<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">m(x)n, p(x)n</h6>
+						<p class="col">Marge exterieur et intérieur élément : 0.
+						<br>Valeur de x: "a" (all), "r" (droite), "l" (guauche), "t" (haut), "b" (bas).
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">m(x)s, p(x)s</h6>
+						<p class="col">Marge exterieur et intérieur élément : petite.
+						<br>Valeur de x: "a" (all), "r" (droite), "l" (guauche), "t" (haut), "b" (bas).</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">m(x)m, p(x)m</h6>
+						<p class="col">Marge exterieur et intérieur élément : moyenne.
+						<br>Valeur de x: "a" (all), "r" (droite), "l" (guauche), "t" (haut), "b" (bas).</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">m(x)l, p(x)l</h6>
+						<p class="col">Marge exterieur et intérieur élément : large.
+						<br>Valeur de x: "a" (all), "r" (droite), "l" (guauche), "t" (haut), "b" (bas).
+						</p>
+					</div>
+				</article>
+				<article class="pbm">
+					<header>GRILLE (avec goutière)<hr></header>
+					<div class="row pbm">
+						<h6 class="col large-w33">grid</h6>
+						<p class="col">Déclaration du mode grille.</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">grid2 ... grid12</h6>
+						<p class="col">Grille de 2 à 12 éléments.
+						<br>Exemple:
+						<code class="mas">&#60;div class="grid" &#62; 
+	&#60;div class="grid2" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+&#60;/div&#62;</code>
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">grid2-1, grid1-2, grid3-1, grid1-3</h6>
+						<p class="col">Grille inégale.
+						<br>Exemple:
+						<code class="mas">&#60;div class="grid" &#62; 
+	&#60;div class="grid12" &#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+		&#60;p&#62; TEST &#60;/p&#62;
+	&#60;/div&#62;
+&#60;/div&#62;</code>
+						</p>
+					</div>
+					<div class="row pbm">
+						<h6 class="col large-w33">autogrid2,autogrid12</h6>
+						<p class="col">Déclaration du mode grille automatique.
+						<br>Exemple:
+						<code class="mas">&#60;div class="autogrid2" &#62; 
+	&#60;p&#62; TEST &#60;/p&#62;
+	&#60;p&#62; TEST &#60;/p&#62;
+	&#60;p&#62; TEST &#60;/p&#62;
+	&#60;p&#62; TEST &#60;/p&#62;
+&#60;/div&#62;</code>
+						</p>
+					</div>
+				</article>
+			</section><!-- #zeus -->
+				
+			<section class="entry-content tab hide pas">
+				<header class="mtl">
+					<h1 class="h3-like">CRONOS.js</h1>
+					<p class="mbl">Bibliothèque javascript développé pour ewon ayant pour objectif de simplifier l'usage et le traitement des variables de l'ewon dans une page html.</p>
+					<div class="row">
+						<div class="col large-w33 tiny-w100">FONCTIONS</div>
+						<div class="col tiny-hidden">DESCRIPTION</div>
+					</div>
+				</header>
+				<hr>
+				<article class="row pbm" >			
+					<h6 class="col large-w33">$.Id('id de l'élément html')</h6>
+					<p class="col">
+						Equivalent à document.getElementById en javascript (pointeur sous forme d'objet sur l'id de l'élément html selectionné).
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col  large-w33 ">$.Class('class du ou des éléments html')</h6>
+					<p class="col">
+						Equivalent à document.getElementsByClassName en javascript (pointeur sous forme de tableau sur la classe de ou des éléments html selectionné).
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">$.TagName('nom de l'élément html')</h6>
+					<p class="col">
+						Equivalent à document.getElementsByTagName en javascript (pointeur sous forme de tableau sur le nom de l'élément html selectionné).
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">$.Tab(class,nbr,opt)</h6>
+					<p class="col">
+						Gestion des onglets multiples.
+						<br>class: nom de la class du group d'onglet.
+						<br>nbr: numero de l'onglet a afficher selon son ordre de déclaration sur le fichier html.
+						<br>opt: Ajoute la class "active" sur l'ID de l'élément passé en parametre.
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">$.tag=function(html,tag)</h6>
+					<p class="col">
+						Parseur html ou xml. Permet de lire le contenu d'une balise unique.
+						<br>html: document html ou xml.
+						<br>tag: nom du tag où extraire le contenu.
+					</p>
+				</article>	
+				<article class="row pbm">			
+					<h6 class="col large-w33">$.editor.get('fichier')</h6>
+					<p class="col">
+						Téléchargement asynchrone d'un fichier sur le serveur EWON pour son édition dans un textarea unique dont l'id est "editor".
+						<br>Le nom du fichier est retourné sur l'élément html dont l'id est "filename"
+						<br>Exemple: $.editor.get('index.html').
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">$.editor.post()</h6>
+					<p class="col">
+						Enregistre les données provenant d'un textarea sur le nom du fichier appeler par la fonction $.editor.get().
+						<br>Le message de retour du serveur est placé sur l'élément dont l'id est "messsage".
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">$.data.get('fichier',timer)</h6>
+					<p class="col">
+						Lecture de fichier asynchrone sur serveur ewon de type json ou xml.
+						<br>timer: valeur en seconde de l'intervalle de téléchargement du fichier (si non préciser pas de rafraichissement).
+						<br>Le retour est a traiter en créant une fonction type "function response(responseText) " (responseText: contenu du fichier télécharger).
+						<br><br>Exemple de fichier variable de type json:
+						<code class="mas">{"var1":<%#TagSSI,JBUS%>,"var2":<%#TagSSI,JBUS%>,"var3":<%#TagSSI,R13%>}</code>
+						<br>Exemple de fonction de réponse du fichier json:
+						<code class="mas">function response(d){var test=JSON.parse(d);console.log(test.var1);}</code>
+						<br>Exemple de fichier variable de type XML:
+						<code class="mas">
+&#60;?xml version='1.0' encoding='UTF-8'?&#62; 
+&#60;var1&#62;<%#TagSSI,JBUS1%>&#60;/var1&#62;
+&#60;var2&#62;<%#TagSSI,JBUS2%>&#60;/var2&#62;
+&#60;var3&#62;<%#TagSSI,JBUS3%>&#60;/var3&#62;
+						</code>
+						<br>Exemple de fonction de réponse du fichier XML:
+						<code class="mas">function response(d){console.log( $.tag(d,'var3') );}</code>
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">window.onload="script"</h6>
+					<p class="col">
+						window.onload est une fonction native de javascript permettant de charger un script au chargement de la page.
+						<br> Exemple:
+						<code class="mas">window.onload=function() {$.data.get('VarTable.shtm');};</code>
+					</p>
+				</article>			
+				<article class="row pbm">			
+					<h6 class="col large-w33">OBJET.className</h6>
+					<p class="col">
+						Ecrire dans l'attribut "class" de l'élément Html pointé.
+						<br> Exemple:
+						<code class="mas">$.Id('id de l'élément html').className="article";</code>
+					</p>
+				</article>	
+				<article class="row pbm">			
+					<h6 class="col large-w33">OBJET.id</h6>
+					<p class="col">
+						Ecrire dans l'attribut "id" de l'élément Html pointé.
+						<br> Exemple:
+						<code class="mas">$.Id('id de l'élément html').id="description";</code>
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">OBJET.href</h6>
+					<p class="col">
+						Ecrire dans l'attribut "href" de l'élément Html pointé.
+						<br> Exemple:
+						<code class="mas">$.Id('id de l'élément html').href="index.shtm";</code>
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">OBJET.titlte</h6>
+					<p class="col">
+						Ecrire dans l'attribut "title" de l'élément Html pointé.
+						<br> Exemple:
+						<code class="mas">$.Id('id de l'élément html').title="Je suis un titre pour une image ou un lien";</code>
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">OBJET.alt</h6>
+					<p class="col">
+						Ecrire dans l'attribut "alt" de l'élément Html pointé.
+						<br> Exemple:
+						<code class="mas">$.Id('id de l'élément html').alt="Je suis un texte de remplacement lorsqu'une image n'est pas chargée";</code>
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">OBJET.innerHTML</h6>
+					<p class="col">
+						Ecrire du contenu dans l'élément Html pointé.
+						<br> Exemple:
+						<code class="mas">$.Id('id de l'élément html').innerHTML="Je suis un contenu d'un élément html";</code>
+					</p>
+				</article>
+				<article class="row pbm">			
+					<h6 class="col large-w33">.=</h6>
+					<p class="col">
+						Surcharger une variable.
+						<br> Exemple:
+						<code class="mas">
+						$.Id('id de l'élément html').innerHTML.="Je suis la suite du texte.";
+						Ajoute du texte à l'élément pointer.</code>
+					</p>
+				</article>
+			</section><!--#cronos -->
+
+			
+		</div><!-- #main  -->
+		
+		<footer class="txtcenter mal" role="contentinfo">
+			<small>Fièrement propulsé par Stéphen DELETANG  | <a href="index.html">Front End</a> | <a href="admin.html">Administration</a></small>
+		</footer>
+	
+	</div><!-- #wrapper -->
+	
+<script src="cronos.min.js"></script>	
+<script>
+/* on verifie si le naviguateur est compatible et que javascript est activé */
+$.Class('info')[0].style.display="none";
+</script>
+</body>
+</html>

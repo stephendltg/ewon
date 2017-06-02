@@ -1,0 +1,77 @@
+﻿/* ------- SUPPLEMENTS HELPERS ----------- */
+.hide {
+display: none;
+}
+a{
+color: #74777b;
+text-decoration: none;
+transition: border 0.2s, color 0.2s;
+}
+a:link{
+color: #74777b;
+}
+a:visited {
+color: #74777b;
+}
+a:hover {
+color: #2CC185;
+border-bottom: 1px solid #2CC185;
+}
+a:focus {
+color: #2CC185;
+border-bottom: 1px solid #2CC185;
+}
+
+button {
+border: 1px solid #bdc2c9;
+color: #74777b;
+transition: all 0.2s;
+background: #fff;
+}
+button:hover {
+background: #e7ecea;
+}
+/* ------- GENERAL STYLING ----------- */
+body {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+background: #e7ecea;
+font-family:'Lato';
+font-weight:300;
+color: #74777b;
+}
+.info{
+color:#fff;
+background:#000;
+}
+/*--- HEADER ----*/
+header hgroup h2 {
+color:#bdc2c9;
+font-variant: small-caps;
+}
+header nav {
+background:#bdc2c9;
+}
+header nav li a{
+font-variant: small-caps;
+color: #74777b;
+background:#fff;
+border-bottom: 5px solid #bdc2c9;
+border-top: 5px solid #bdc2c9;
+}
+header nav li .active,header nav li .active:hover{
+color: #2CC185;
+background: #fff;
+border-bottom: 5px solid #fff;
+}
+header nav li a:hover{
+color: #fff;
+background: #2CC185;
+border-bottom: 5px solid #2CC185;
+}
+/*--- SECTION ---*/
+section {
+background: #fff;
+}
+
+
